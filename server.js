@@ -15,9 +15,13 @@ app.use(express.json());
 app.use(cors({
   origin: "https://mamababybudd.netlify.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
+
+
 app.options('*', cors());
+app.use(express.json());
 app.use(helmet());
 app.use(morgan("dev"));
 
